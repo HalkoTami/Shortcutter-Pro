@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct ContentView: View {
     var body: some View {
@@ -15,7 +16,10 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
             Text("Hello, shortcutterPro!")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
+        .navigationTitle("Start")
+        .toolbarBackground(Color.red)
     }
 }
 
