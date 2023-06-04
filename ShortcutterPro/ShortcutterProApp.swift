@@ -13,10 +13,6 @@ struct ShortcutterProApp: App {
     var body: some Scene {
         WindowGroup {
             StartScreen()
-                .onAppear {
-                    
-                    
-                }
         }
         .windowToolbarStyle(UnifiedWindowToolbarStyle())
         
