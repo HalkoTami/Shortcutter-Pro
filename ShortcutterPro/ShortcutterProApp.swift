@@ -12,7 +12,7 @@ import AppKit
 struct ShortcutterProApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartScreen()
                 .onAppear {
                     
                     

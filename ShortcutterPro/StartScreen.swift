@@ -8,7 +8,7 @@
 import SwiftUI
 import AppKit
 
-struct ContentView: View {
+struct StartScreen: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -19,12 +19,12 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
         .navigationTitle("Start")
-        .toolbarBackground(Color.red)
+        .toolbarBackground(Color.titlebarBackground)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        StartScreen()
     }
 }
