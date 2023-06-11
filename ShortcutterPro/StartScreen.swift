@@ -11,34 +11,30 @@ import AppKit
 struct StartScreen: View {
     var body: some View {
         VStack {
-            HStack() {
-                VStack {
-                    SmallButton(
-                        imageName: "ic_keycap"
-                    )
-                    Spacer()
-                }
-                .padding(.top)
-                .padding(.leading)
-                VStack(alignment:.center) {
-                    Spacer()
-                    LevelBar()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+            HStack {
+                SmallButton(
+                    imageName: "ic_keycap"
+                )
+                Spacer()
             }
-            .frame(
-                minWidth: 20, maxWidth: .infinity,
-                minHeight: 136, maxHeight: .infinity
-            )
             Spacer()
+            ZStack{
+                LevelBar()
+            }
+            .padding(.bottom,40)
             HStack {
                 ButtonPractice()
+                Spacer()
+                    .frame(width: 40)
                 ButtonTest()
             }
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.all,30)
+        .frame(
+            minWidth: 800, maxWidth: .infinity,
+            minHeight:600, maxHeight: .infinity
+        )
         .background(Color.windowBackground)
         .navigationTitle("Start")
         .toolbarBackground(Color.titlebarBackground)
