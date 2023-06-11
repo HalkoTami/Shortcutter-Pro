@@ -20,11 +20,11 @@ struct StartScreen: View {
             }
             Spacer()
             ZStack{
-                LevelBar()
+                LevelBar(width: 300)
             }
             .padding(.bottom,40)
             HStack {
-                ButtonPractice()
+                StartButton()
                 Spacer()
                     .frame(width: 40)
                 ButtonTest()
@@ -42,16 +42,6 @@ struct StartScreen: View {
     }
 }
 
-
-private struct ButtonPractice : View {
-    var body: some View {
-        ZStack {
-            
-        }
-        .frame(width: 227, height: 263)
-        .background(Color.basicYellow)
-    }
-}
 private struct ButtonTest : View {
     var body: some View {
         ZStack {

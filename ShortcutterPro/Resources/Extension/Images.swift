@@ -12,6 +12,8 @@ enum Images {
     case badgeForeground
     case badgeBackground
     case icKeycap
+    case icKeycapSingle
+    case icTimer
     
     func stringValue() -> String {
             switch self {
@@ -21,6 +23,10 @@ enum Images {
                 return "ic_level_badge_background"
             case .icKeycap:
                 return "ic_keycap"
+            case .icKeycapSingle:
+                return "ic_keycap_single"
+            case .icTimer:
+                return "ic_timer"
             }
         }
 }

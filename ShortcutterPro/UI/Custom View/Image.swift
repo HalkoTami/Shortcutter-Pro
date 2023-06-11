@@ -14,9 +14,10 @@ extension Image {
             // Perform any necessary initialization here based on the custom parameter
         self.init(image.stringValue())
         }
+    
     func tinted(with color: Color) -> some View {
             self
-            .renderingMode(.original)
+            .renderingMode(.template)
             .foregroundColor(color)
         }
 }

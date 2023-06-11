@@ -24,6 +24,7 @@
 		CE9A50742A3579A000DB3B71 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A50732A3579A000DB3B71 /* Images.swift */; };
 		CE9A50762A357FEB00DB3B71 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A50752A357FEB00DB3B71 /* Image.swift */; };
 		CE9A50852A358B4000DB3B71 /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE9A50872A358B4000DB3B71 /* Arial Rounded Bold.ttf */; };
+		CE9A508C2A35C26900DB3B71 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A508B2A35C26900DB3B71 /* StartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		CE9A50732A3579A000DB3B71 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CE9A50752A357FEB00DB3B71 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		CE9A50862A358B4000DB3B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
+		CE9A508B2A35C26900DB3B71 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				CE654A742A2B097100D73B22 /* StartScreen.swift */,
 				CE9A506F2A3573E700DB3B71 /* ButtonManageShortcuts.swift */,
 				CE9A50712A35756600DB3B71 /* LevelBar.swift */,
+				CE9A508B2A35C26900DB3B71 /* StartButton.swift */,
 			);
 			path = StartScreen;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				CE9A50762A357FEB00DB3B71 /* Image.swift in Sources */,
 				CE9A50742A3579A000DB3B71 /* Images.swift in Sources */,
 				CE9A50692A35705400DB3B71 /* StrokeText.swift in Sources */,
+				CE9A508C2A35C26900DB3B71 /* StartButton.swift in Sources */,
 				CE654A752A2B097100D73B22 /* StartScreen.swift in Sources */,
 				CE9A506D2A35721D00DB3B71 /* Font.swift in Sources */,
 				CE654A732A2B097100D73B22 /* ShortcutterProApp.swift in Sources */,

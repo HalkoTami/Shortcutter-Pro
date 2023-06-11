@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 extension Font {
-    static let levelBar = Font.custom("", size: 14)
-    //TODO: "Arial Rounded Bold"を適用して中心に来るように修正
-    static let levelBadge = Font.custom("", size: 16)
+    static let levelBar = Font.system(size: 22)
+    static let levelBadge = Font.system(size: 20, weight: .medium, design: .rounded)
+    static let buttonStartTitle = Font.system(size: 20,weight: .bold)
+    static let buttonStartTimelimit = Font.system(size: 24,weight: .bold)
 }
