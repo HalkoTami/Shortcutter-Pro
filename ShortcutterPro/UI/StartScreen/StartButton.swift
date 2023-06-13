@@ -21,33 +21,66 @@ struct StartButton : View {
                 Text(text)
                     .font(Font.buttonStartTitle)
             }
-            .frame(width: .infinity, height: 70)
+            .frame(height: height/4)
             .padding(2)
             Spacer()
                 .frame(height: height/12)
-            TimeLimit(width: width)
-            
+            TimeLimit()
+            Spacer()
+                .frame(height: height/12)
+            KeyVisibility()
         }
         .frame(width: width, height: height)
     }
 }
 
 private struct TimeLimit : View {
-    var width:CGFloat = 227
     var timeLimitText = "05:00"
     var body: some View {
-        HStack {
-            Image(image: Images.icTimer)
-                .padding(.trailing,width/15)
-            Text(timeLimitText)
-                .font(Font.buttonStartTimelimit)
-        }
-        .padding(.trailing,width/5)
-        .frame(width: .infinity)
+        DetailLayout(
+            leftView: Image(image: .icTimer),
+            rightView: AnyView(
+                Text(timeLimitText)
+                    .font(Font.buttonStartTimelimit)
+            )
+        )
+    }
+}
+private struct KeyVisibility : View {
+    var body: some View {
+        DetailLayout(
+            leftView: Image(image: .icKeycapSingle),
+            rightView: AnyView(
+                Image(image: .icEyeOpen)
+            )
+        )
         
     }
 }
-
+private struct DetailLayout : View {
+    var height:CGFloat = 45
+    let leftView:Image
+    let rightView:AnyView
+    var body: some View {
+        GeometryReader { geometry in
+            let width:CGFloat = geometry.size.width
+            HStack{
+                leftView
+                    .resizable()
+                    .frame(width: height)
+                    .padding(.trailing,width/15)
+                rightView
+                    .frame(width: width/3)
+            }
+            .padding(.trailing,width/5)
+            .frame(
+                width: width,height: height
+            )
+        }
+        .frame(height: height)
+        
+    }
+}
 
 
 struct ButtonPracticePreview: PreviewProvider {
