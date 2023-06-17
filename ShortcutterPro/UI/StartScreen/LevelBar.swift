@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 struct LevelBar : View {
-    var width :CGFloat = 400
-    var height: CGFloat = 70
+    let width :CGFloat = 270
+    let height: CGFloat = 50
     
     var body: some View {
         ZStack() {
             GeometryReader { geometry in
                 
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray1)
                 Rectangle()
                     .fill(Color.basicBlue)
@@ -33,9 +33,8 @@ struct LevelBar : View {
                         x: geometry.size.width / 2,
                         y: geometry.size.height / 2)
             }
-            .padding(.vertical,height*0.2)
-            .frame(width: .infinity,height:.infinity)
-            .padding(.leading,height*0.85)
+            .padding(.vertical,height*0.18)
+            .padding(.leading,height*0.80)
     
             HStack{
                 Badge()
@@ -60,7 +59,7 @@ private struct Badge :View {
             Text("1")
                 .font(Font.levelBadge) 
         }
-        .frame(width: 70, height: 70)
+        .frame(width: .infinity, height: .infinity)
     }
 }
 

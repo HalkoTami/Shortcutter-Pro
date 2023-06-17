@@ -8,65 +8,102 @@
 import Foundation
 import SwiftUI
 
+enum PlayMode {
+    case Practice
+    case Test
+    
+    func timeLimit() -> Int{
+        switch self {
+            case .Practice:
+                return 300
+            case .Test:
+                return 180
+        }
+    }
+    
+    func KeyVisible() -> Bool {
+        switch self {
+        case .Practice:
+            return true
+        case .Test:
+            return false
+        }
+    }
+    
+    func getEyeImage()->Images {
+        if(self.KeyVisible()) {
+            return Images.icEyeOpen
+        } else {
+            return Images.icEyeClosed
+        }
+    }
+    
+}
 
 struct StartButton : View {
-    var width:CGFloat = 227
-    var height:CGFloat = 263
-    var text = "PRACTICE"
+    let width:CGFloat = 190
+    let height:CGFloat = 263
+    let playMode:PlayMode
     var body: some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 100)
                     .stroke(Color.gray1,lineWidth: 2)
-                Text(text)
+                Text(verbatim: .startButtonTitle(playMode: playMode))
                     .font(Font.buttonStartTitle)
             }
-            .frame(height: height/4)
+            .frame(height: 68)
             .padding(2)
             Spacer()
-                .frame(height: height/12)
-            TimeLimit()
+                .frame(height: 10)
+            DetailLayout(
+                leftView: AnyView(
+                    Image(image: .icTimer)
+                        .resizable()
+                ),
+                rightView: AnyView(
+                    Text(playMode.timeLimit().formatSecondsToString())
+                        .font(Font.buttonStartTimelimit)
+                )
+            )
             Spacer()
-                .frame(height: height/12)
-            KeyVisibility()
+                .frame(height: 10)
+            DetailLayout(
+                leftView: AnyView(
+                    Image(image: .icKeycapSingle)
+                        .resizable()
+                ),
+                rightView: AnyView(
+                    Image(
+                        image: playMode.getEyeImage()
+                    )
+                )
+            )
+            DetailLayout(
+                leftView: AnyView(
+                    Text("XP")
+                        .font(.buttonStartXp)
+                ),
+                rightView: AnyView(
+                    Text("x3!")
+                        .font(.buttonStartXpDetail)
+                        .foregroundColor(.basicYellow)
+                )
+            )
         }
         .frame(width: width, height: height)
     }
 }
 
-private struct TimeLimit : View {
-    var timeLimitText = "05:00"
-    var body: some View {
-        DetailLayout(
-            leftView: Image(image: .icTimer),
-            rightView: AnyView(
-                Text(timeLimitText)
-                    .font(Font.buttonStartTimelimit)
-            )
-        )
-    }
-}
-private struct KeyVisibility : View {
-    var body: some View {
-        DetailLayout(
-            leftView: Image(image: .icKeycapSingle),
-            rightView: AnyView(
-                Image(image: .icEyeOpen)
-            )
-        )
-        
-    }
-}
 private struct DetailLayout : View {
     var height:CGFloat = 45
-    let leftView:Image
+    let leftView:AnyView
     let rightView:AnyView
     var body: some View {
         GeometryReader { geometry in
             let width:CGFloat = geometry.size.width
             HStack{
                 leftView
-                    .resizable()
                     .frame(width: height)
                     .padding(.trailing,width/15)
                 rightView
@@ -82,9 +119,8 @@ private struct DetailLayout : View {
     }
 }
 
-
-struct ButtonPracticePreview: PreviewProvider {
+struct StartButtonPreview: PreviewProvider {
     static var previews: some View {
-        StartButton()
+        StartButton(playMode: .Practice)
     }
 }

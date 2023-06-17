@@ -20,14 +20,14 @@ struct StartScreen: View {
             }
             Spacer()
             ZStack{
-                LevelBar(width: 300)
+                LevelBar()
             }
             .padding(.bottom,40)
             HStack {
-                StartButton()
+                StartButton(playMode: .Practice)
                 Spacer()
-                    .frame(width: 40)
-                ButtonTest()
+                    .frame(width: 70)
+                StartButton(playMode: .Test)
             }
             Spacer()
         }
@@ -42,15 +42,6 @@ struct StartScreen: View {
     }
 }
 
-private struct ButtonTest : View {
-    var body: some View {
-        ZStack {
-            
-        }
-        .frame(width: 227, height: 263)
-        .background(Color.basicYellow)
-    }
-}
 
 
 struct ContentView_Previews: PreviewProvider {
