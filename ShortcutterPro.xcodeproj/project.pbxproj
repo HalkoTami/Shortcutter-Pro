@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE205ABE2A3D938A0018C0BB /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE205ABD2A3D938A0018C0BB /* IntExtension.swift */; };
+		CE205AC02A3D95AB0018C0BB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE205ABF2A3D95AB0018C0BB /* String.swift */; };
 		CE654A732A2B097100D73B22 /* ShortcutterProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A722A2B097100D73B22 /* ShortcutterProApp.swift */; };
-		CE654A752A2B097100D73B22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A742A2B097100D73B22 /* ContentView.swift */; };
+		CE654A752A2B097100D73B22 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A742A2B097100D73B22 /* StartScreen.swift */; };
 		CE654A772A2B097200D73B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE654A762A2B097200D73B22 /* Assets.xcassets */; };
 		CE654A7A2A2B097200D73B22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE654A792A2B097200D73B22 /* Preview Assets.xcassets */; };
 		CE654A852A2B097200D73B22 /* ShortcutterProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A842A2B097200D73B22 /* ShortcutterProTests.swift */; };
 		CE654A8F2A2B097200D73B22 /* ShortcutterProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A8E2A2B097200D73B22 /* ShortcutterProUITests.swift */; };
 		CE654A912A2B097200D73B22 /* ShortcutterProUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A902A2B097200D73B22 /* ShortcutterProUITestsLaunchTests.swift */; };
+		CE654A9E2A2C4C5200D73B22 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE654A9D2A2C4C5200D73B22 /* Colors.xcassets */; };
+		CE654AA12A2C516500D73B22 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654AA02A2C516500D73B22 /* Color.swift */; };
+		CE654AA42A2C58A700D73B22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE654AA32A2C58A700D73B22 /* Images.xcassets */; };
+		CE9A50692A35705400DB3B71 /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A50682A35705400DB3B71 /* StrokeText.swift */; };
+		CE9A506D2A35721D00DB3B71 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A506C2A35721D00DB3B71 /* Font.swift */; };
+		CE9A50702A3573E700DB3B71 /* ButtonManageShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A506F2A3573E700DB3B71 /* ButtonManageShortcuts.swift */; };
+		CE9A50722A35756600DB3B71 /* LevelBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A50712A35756600DB3B71 /* LevelBar.swift */; };
+		CE9A50742A3579A000DB3B71 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A50732A3579A000DB3B71 /* Images.swift */; };
+		CE9A50762A357FEB00DB3B71 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A50752A357FEB00DB3B71 /* Image.swift */; };
+		CE9A50852A358B4000DB3B71 /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE9A50872A358B4000DB3B71 /* Arial Rounded Bold.ttf */; };
+		CE9A508C2A35C26900DB3B71 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A508B2A35C26900DB3B71 /* StartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE205ABD2A3D938A0018C0BB /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		CE205ABF2A3D95AB0018C0BB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		CE654A6F2A2B097100D73B22 /* ShortcutterPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortcutterPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE654A722A2B097100D73B22 /* ShortcutterProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutterProApp.swift; sourceTree = "<group>"; };
-		CE654A742A2B097100D73B22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE654A742A2B097100D73B22 /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; tabWidth = 4; };
 		CE654A762A2B097200D73B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE654A792A2B097200D73B22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE654A7B2A2B097200D73B22 /* ShortcutterPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShortcutterPro.entitlements; sourceTree = "<group>"; };
@@ -45,6 +60,17 @@
 		CE654A8A2A2B097200D73B22 /* ShortcutterProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortcutterProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE654A8E2A2B097200D73B22 /* ShortcutterProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutterProUITests.swift; sourceTree = "<group>"; };
 		CE654A902A2B097200D73B22 /* ShortcutterProUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutterProUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE654A9D2A2C4C5200D73B22 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		CE654AA02A2C516500D73B22 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CE654AA32A2C58A700D73B22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CE9A50682A35705400DB3B71 /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
+		CE9A506C2A35721D00DB3B71 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		CE9A506F2A3573E700DB3B71 /* ButtonManageShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonManageShortcuts.swift; sourceTree = "<group>"; };
+		CE9A50712A35756600DB3B71 /* LevelBar.swift */ = {isa = PBXFileReference; fileEncoding = 30; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = LevelBar.swift; path = /Users/halko/XcodeProjects/ShortcutterPro/ShortcutterPro/UI/StartScreen/LevelBar.swift; sourceTree = "<absolute>"; tabWidth = 1; usesTabs = 0; wrapsLines = 1; };
+		CE9A50732A3579A000DB3B71 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		CE9A50752A357FEB00DB3B71 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		CE9A50862A358B4000DB3B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
+		CE9A508B2A35C26900DB3B71 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +98,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE205ABB2A3D8DF70018C0BB /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		CE205ABC2A3D93700018C0BB /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				CE205ABD2A3D938A0018C0BB /* IntExtension.swift */,
+			);
+			path = utility;
+			sourceTree = "<group>";
+		};
 		CE654A662A2B097100D73B22 = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +136,9 @@
 		CE654A712A2B097100D73B22 /* ShortcutterPro */ = {
 			isa = PBXGroup;
 			children = (
+				CE9A50662A356FE900DB3B71 /* UI */,
 				CE654A722A2B097100D73B22 /* ShortcutterProApp.swift */,
-				CE654A742A2B097100D73B22 /* ContentView.swift */,
+				CE654A9F2A2C512500D73B22 /* Resources */,
 				CE654A762A2B097200D73B22 /* Assets.xcassets */,
 				CE654A7B2A2B097200D73B22 /* ShortcutterPro.entitlements */,
 				CE654A782A2B097200D73B22 /* Preview Content */,
@@ -129,6 +171,75 @@
 			path = ShortcutterProUITests;
 			sourceTree = "<group>";
 		};
+		CE654A9F2A2C512500D73B22 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A506B2A3570C100DB3B71 /* Extension */,
+				CE9A506A2A3570AD00DB3B71 /* asset */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE9A50662A356FE900DB3B71 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CE205ABC2A3D93700018C0BB /* utility */,
+				CE9A506E2A35737F00DB3B71 /* StartScreen */,
+				CE9A50672A35701A00DB3B71 /* Custom View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CE9A50672A35701A00DB3B71 /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A50682A35705400DB3B71 /* StrokeText.swift */,
+				CE9A50752A357FEB00DB3B71 /* Image.swift */,
+			);
+			path = "Custom View";
+			sourceTree = "<group>";
+		};
+		CE9A506A2A3570AD00DB3B71 /* asset */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A50792A3582C100DB3B71 /* Fonts */,
+				CE654AA32A2C58A700D73B22 /* Images.xcassets */,
+				CE654A9D2A2C4C5200D73B22 /* Colors.xcassets */,
+			);
+			path = asset;
+			sourceTree = "<group>";
+		};
+		CE9A506B2A3570C100DB3B71 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CE654AA02A2C516500D73B22 /* Color.swift */,
+				CE9A506C2A35721D00DB3B71 /* Font.swift */,
+				CE9A50732A3579A000DB3B71 /* Images.swift */,
+				CE205ABF2A3D95AB0018C0BB /* String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CE9A506E2A35737F00DB3B71 /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CE205ABB2A3D8DF70018C0BB /* model */,
+				CE654A742A2B097100D73B22 /* StartScreen.swift */,
+				CE9A506F2A3573E700DB3B71 /* ButtonManageShortcuts.swift */,
+				CE9A50712A35756600DB3B71 /* LevelBar.swift */,
+				CE9A508B2A35C26900DB3B71 /* StartButton.swift */,
+			);
+			path = StartScreen;
+			sourceTree = "<group>";
+		};
+		CE9A50792A3582C100DB3B71 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A50872A358B4000DB3B71 /* Arial Rounded Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +256,8 @@
 			dependencies = (
 			);
 			name = ShortcutterPro;
+			packageProductDependencies = (
+			);
 			productName = ShortcutterPro;
 			productReference = CE654A6F2A2B097100D73B22 /* ShortcutterPro.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +330,9 @@
 				Base,
 			);
 			mainGroup = CE654A662A2B097100D73B22;
+			packageReferences = (
+				CE9A50632A2C686F00DB3B71 /* XCRemoteSwiftPackageReference "Macaw" */,
+			);
 			productRefGroup = CE654A702A2B097100D73B22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +349,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE654A9E2A2C4C5200D73B22 /* Colors.xcassets in Resources */,
+				CE654AA42A2C58A700D73B22 /* Images.xcassets in Resources */,
 				CE654A7A2A2B097200D73B22 /* Preview Assets.xcassets in Resources */,
+				CE9A50852A358B4000DB3B71 /* Arial Rounded Bold.ttf in Resources */,
 				CE654A772A2B097200D73B22 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +378,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE654A752A2B097100D73B22 /* ContentView.swift in Sources */,
+				CE9A50702A3573E700DB3B71 /* ButtonManageShortcuts.swift in Sources */,
+				CE9A50762A357FEB00DB3B71 /* Image.swift in Sources */,
+				CE9A50742A3579A000DB3B71 /* Images.swift in Sources */,
+				CE205ABE2A3D938A0018C0BB /* IntExtension.swift in Sources */,
+				CE9A50692A35705400DB3B71 /* StrokeText.swift in Sources */,
+				CE9A508C2A35C26900DB3B71 /* StartButton.swift in Sources */,
+				CE205AC02A3D95AB0018C0BB /* String.swift in Sources */,
+				CE654A752A2B097100D73B22 /* StartScreen.swift in Sources */,
+				CE9A506D2A35721D00DB3B71 /* Font.swift in Sources */,
 				CE654A732A2B097100D73B22 /* ShortcutterProApp.swift in Sources */,
+				CE654AA12A2C516500D73B22 /* Color.swift in Sources */,
+				CE9A50722A35756600DB3B71 /* LevelBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +424,18 @@
 			targetProxy = CE654A8B2A2B097200D73B22 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE9A50872A358B4000DB3B71 /* Arial Rounded Bold.ttf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9A50862A358B4000DB3B71 /* Base */,
+			);
+			name = "Arial Rounded Bold.ttf";
+			path = ShortcutterPro/Resources/asset/Fonts;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CE654A922A2B097200D73B22 /* Debug */ = {
@@ -422,6 +563,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ShortcutterPro/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShortcutterPro/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,6 +589,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ShortcutterPro/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShortcutterPro/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +711,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE9A50632A2C686F00DB3B71 /* XCRemoteSwiftPackageReference "Macaw" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/Macaw.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = CE654A672A2B097100D73B22 /* Project object */;
 }

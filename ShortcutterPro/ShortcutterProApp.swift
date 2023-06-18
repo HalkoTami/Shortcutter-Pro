@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import AppKit
 
 @main
 struct ShortcutterProApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartScreen()
         }
+        .windowToolbarStyle(UnifiedWindowToolbarStyle())
+        
+    
     }
 }
