@@ -14,7 +14,7 @@ struct StartScreen: View {
         VStack {
             HStack {
                 ButtonShortcutsManager(
-                    imageName: "ic_keycap"
+                    imageName: Images.icKeycap
                 )
                 Spacer()
             }
@@ -22,23 +22,26 @@ struct StartScreen: View {
             ZStack{
                 LevelBar()
             }
-            .padding(.bottom,40)
+            Spacer()
+                .frame(height: 70)
             HStack {
                 StartButton(playMode: .Practice)
                 Spacer()
-                    .frame(width: 70)
+                    .frame(width: 100)
                 StartButton(playMode: .Test)
             }
             Spacer()
         }
         .padding(.all,30)
-        .frame(
-            minWidth: 800, maxWidth: .infinity,
-            minHeight:600, maxHeight: .infinity
-        )
         .background(Color.windowBackground)
         .navigationTitle("Start")
         .toolbarBackground(Color.titlebarBackground)
+        .frame(
+            minWidth: 950,
+            maxWidth: .infinity,
+            minHeight: 560,
+            maxHeight: .infinity
+        )
     }
 }
 

@@ -42,7 +42,7 @@ enum PlayMode {
 
 struct StartButton : View {
     let width:CGFloat = 190
-    let height:CGFloat = 263
+    let height:CGFloat = 250
     let playMode:PlayMode
     var body: some View {
         VStack {
@@ -79,17 +79,20 @@ struct StartButton : View {
                     )
                 )
             )
-            DetailLayout(
-                leftView: AnyView(
-                    Text("XP")
-                        .font(.buttonStartXp)
-                ),
-                rightView: AnyView(
-                    Text("x3!")
-                        .font(.buttonStartXpDetail)
-                        .foregroundColor(.basicYellow)
+            if(playMode == .Test){
+                DetailLayout(
+                    leftView: AnyView(
+                        Text("XP")
+                            .font(.buttonStartXp)
+                    ),
+                    rightView: AnyView(
+                        Text("x3!")
+                            .font(.buttonStartXpDetail)
+                            .foregroundColor(.basicYellow)
+                    )
                 )
-            )
+            }
+            Spacer()
         }
         .frame(width: width, height: height)
     }

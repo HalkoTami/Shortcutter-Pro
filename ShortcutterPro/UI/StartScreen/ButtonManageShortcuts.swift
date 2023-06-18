@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ButtonShortcutsManager: View {
-    let imageName: String
+    let imageName: Images
     let buttonSize:CGFloat = 70
     var body: some View {
         ZStack {
@@ -20,7 +20,7 @@ struct ButtonShortcutsManager: View {
                 .stroke(Color.gray1, lineWidth: 2)
                 .padding(5)
             
-            Image(imageName)
+            Image(imageName.stringValue())
                 .resizable()
                 .renderingMode(.original)
                 .interpolation(.none)
@@ -40,7 +40,7 @@ struct ButtonShortcutsManager: View {
 struct ButtonPreview: PreviewProvider {
     static var previews: some View {
         ButtonShortcutsManager(
-            imageName: "ic_keycap"
+            imageName: Images.icKeycap
         )
     }
 }
