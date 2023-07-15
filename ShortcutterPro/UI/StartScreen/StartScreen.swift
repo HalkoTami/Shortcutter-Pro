@@ -13,9 +13,7 @@ struct StartScreen: View {
     var body: some View {
         VStack {
             HStack {
-                ButtonShortcutsManager(
-                    imageName: Images.icKeycap
-                )
+                ButtonShortcutsManager()
                 Spacer()
             }
             Spacer()
