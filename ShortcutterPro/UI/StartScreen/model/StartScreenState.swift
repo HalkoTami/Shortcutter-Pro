@@ -10,6 +10,8 @@ import SwiftUI
 
 struct StartScreenState {
     let levelState:LevelState
+    
+    static let initialState = StartScreenState(levelState: LevelState(currentXp: 0))
 }
 
 struct LevelState {
@@ -56,16 +58,20 @@ enum Level: CaseIterable {
         }
     }
     
+    var badgeText:String {
+        return Level.allCases.firstIndex(of: self)?.formatted() ?? ""
+    }
+    
     static func getLevelByCurrentXp(currentXp:Int)->Level{
         for level in Level.allCases {
-            var isFirstItem = Level.allCases[0] == level
-            var levelBefore = Level.allCases[(Level.allCases.firstIndex(of: level) ?? 1)-1]
+            let isFirstItem = Level.allCases[0] == level
+            let levelBefore = Level.allCases[(Level.allCases.firstIndex(of: level) ?? 1)-1]
             if(
                 (isFirstItem && currentXp<level.maxXp)||(currentXp >= levelBefore.maxXp && currentXp < level.maxXp)
             ){
                 return level
             }
         }
-        return level5
+        return level5   
     }
 }

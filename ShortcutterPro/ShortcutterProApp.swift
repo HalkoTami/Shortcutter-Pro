@@ -10,9 +10,12 @@ import AppKit
 
 @main
 struct ShortcutterProApp: App {
+    private let repository = Repository()
     var body: some Scene {
         WindowGroup {
-            StartScreen()
+            let viewModel = StartViewModel(repository: repository)
+            
+            AppStartScreen(viewModel: viewModel)
         }
         .windowToolbarStyle(UnifiedWindowToolbarStyle())
         

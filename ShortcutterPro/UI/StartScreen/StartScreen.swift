@@ -8,8 +8,16 @@
 import SwiftUI
 import AppKit
 import Cocoa
+struct AppStartScreen: View {
+    @ObservedObject var viewModel:StartViewModel
+    var body: some View {
+        StartScreen(state: viewModel.state)
+    }
+}
 
-struct StartScreen: View {
+
+private struct StartScreen: View {
+    let state:StartScreenState
     var body: some View {
         VStack {
             HStack {
@@ -47,6 +55,6 @@ struct StartScreen: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        StartScreen()
+        StartScreen(state :StartScreenState.initialState)
     }
 }
