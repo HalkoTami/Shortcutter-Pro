@@ -26,7 +26,7 @@ private struct StartScreen: View {
             }
             Spacer()
             ZStack{
-                LevelBar()
+                LevelBar(state: state.levelState)
             }
             Spacer()
                 .frame(height: 70)

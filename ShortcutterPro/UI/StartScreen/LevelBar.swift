@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct LevelBar : View {
+    let state:LevelState
     let width :CGFloat = 270
     let height: CGFloat = 50
     
@@ -19,11 +20,11 @@ struct LevelBar : View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray1)
                 Rectangle()
-                    .fill(Color.basicBlue)
-                    .frame(width: geometry.size.width * 0.1,height: geometry.size.height)
+                    .fill(state.level.color)
+                    .frame(width: geometry.size.width * CGFloat(Level.getProgress(currentXp: state.currentXp)),height: geometry.size.height)
                 
                 StrokeText(
-                    text: "265/2000",
+                    text: "\(state.currentXp)/" + state.level.maxXp,
                     strokeSize: 1,
                     color: Color.gray1
                 )
@@ -37,7 +38,7 @@ struct LevelBar : View {
             .padding(.leading,height*0.80)
     
             HStack{
-                Badge()
+                Badge(color: state.level.color)
                     .frame(width: height, height: height)
                 Spacer()
             }
@@ -47,29 +48,29 @@ struct LevelBar : View {
 }
 
 private struct Badge :View {
+    let color:Color
     var body: some View {
         ZStack(alignment: .center){
             GeometryReader{ geometry in
                 Image(image: Images.badgeBackground)
                     .resizable()
-                    .tinted(with: Color.basicBlue)
+                    .tinted(with: color)
                 Image(image: Images.badgeForeground)
                     .resizable()
             }
             Text("1")
                 .font(Font.levelBadge) 
         }
-        .frame(width: .infinity, height: .infinity)
     }
 }
 
 struct LevelBarPreview: PreviewProvider {
     static var previews: some View {
-        LevelBar()
+        LevelBar(state: LevelState(currentXp: 400   ))
     }
 }
 struct BadgePreview: PreviewProvider {
     static var previews: some View {
-        Badge()
+        Badge(color: Level.level5.color)
     }
 }
