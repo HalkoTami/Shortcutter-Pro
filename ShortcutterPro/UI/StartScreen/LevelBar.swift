@@ -24,7 +24,9 @@ struct LevelBar : View {
                     .frame(width: geometry.size.width/2)
                 let levelBarWidth = geometry.size.width * state.progress
                 if(geometry.size.width-levelBarWidth<10){
-                    
+                    Rectangle()
+                        .fill(state.level.color)
+                        .frame(width: levelBarWidth/2)
                 } else {
                     Rectangle()
                         .fill(state.level.color)
