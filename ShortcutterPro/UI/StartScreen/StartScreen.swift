@@ -9,6 +9,7 @@ import SwiftUI
 import AppKit
 import Cocoa
 struct AppStartScreen: View {
+    @Binding var show: Bool
     @ObservedObject var viewModel:StartViewModel
     var body: some View {
         StartScreen(state: viewModel.state)

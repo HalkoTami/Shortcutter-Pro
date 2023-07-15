@@ -12,6 +12,7 @@
 		CE205AC92A625F100018C0BB /* StartScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE205AC82A625F100018C0BB /* StartScreenState.swift */; };
 		CE205ACC2A626BE80018C0BB /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE205ACB2A626BE80018C0BB /* StartViewModel.swift */; };
 		CE205ACE2A626E3A0018C0BB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE205ACD2A626E3A0018C0BB /* Repository.swift */; };
+		CE205AD42A629F690018C0BB /* PlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE205AD32A629F690018C0BB /* PlayScreen.swift */; };
 		CE654A732A2B097100D73B22 /* ShortcutterProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A722A2B097100D73B22 /* ShortcutterProApp.swift */; };
 		CE654A752A2B097100D73B22 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE654A742A2B097100D73B22 /* StartScreen.swift */; };
 		CE654A772A2B097200D73B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE654A762A2B097200D73B22 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		CE205AC82A625F100018C0BB /* StartScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenState.swift; sourceTree = "<group>"; };
 		CE205ACB2A626BE80018C0BB /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		CE205ACD2A626E3A0018C0BB /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		CE205AD32A629F690018C0BB /* PlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayScreen.swift; sourceTree = "<group>"; };
 		CE654A6F2A2B097100D73B22 /* ShortcutterPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortcutterPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE654A722A2B097100D73B22 /* ShortcutterProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutterProApp.swift; sourceTree = "<group>"; };
 		CE654A742A2B097100D73B22 /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -201,6 +203,7 @@
 		CE9A50662A356FE900DB3B71 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CE205AD32A629F690018C0BB /* PlayScreen.swift */,
 				CE205ABC2A3D93700018C0BB /* utility */,
 				CE9A506E2A35737F00DB3B71 /* StartScreen */,
 				CE9A50672A35701A00DB3B71 /* Custom View */,
@@ -396,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9A50702A3573E700DB3B71 /* ButtonManageShortcuts.swift in Sources */,
+				CE205AD42A629F690018C0BB /* PlayScreen.swift in Sources */,
 				CE9A50762A357FEB00DB3B71 /* Image.swift in Sources */,
 				CE205ACE2A626E3A0018C0BB /* Repository.swift in Sources */,
 				CE9A50742A3579A000DB3B71 /* Images.swift in Sources */,
