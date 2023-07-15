@@ -10,14 +10,57 @@ import SwiftUI
 
 struct StartScreenState {
     let levelState:LevelState
-    
     static let initialState = StartScreenState(levelState: LevelState(currentXp: 0))
 }
 
 struct LevelState {
     let currentXp:Int
     var level :Level {
-        return Level.getLevelByCurrentXp(currentXp: currentXp)
+        return LevelState.getLevelByCurrentXp(currentXp: currentXp)
+    }
+    var progress:CGFloat {
+        return CGFloat(LevelState.getProgress(currentXp: currentXp))
+    }
+    
+    var maxXp: Int {
+        return level.levelRange.upperBound+1
+    }
+    
+    var isMax:Bool {
+        let index = Level.allCases.firstIndex(of: level)
+        let MaxLevel = index == Level.allCases.count-1
+        return MaxLevel
+    }
+    
+    var badgeText:String {
+        if(isLevelInfinity) {
+            return "?!"
+        } else {
+            return String(level.levelCount)
+        }
+    }
+    
+    var isLevelInfinity:Bool {
+        return level.isMax && currentXp>level.levelRange.upperBound
+    }
+    
+    static func getProgress(currentXp:Int)->Float{
+        let level = LevelState.getLevelByCurrentXp(currentXp: currentXp)
+        let xpInCurrentLevel:Float = Float(currentXp - (level.levelRange.lowerBound))
+        let percentage:Float = xpInCurrentLevel/Float(level.levelRange.count)
+        if(level.isMax && currentXp>level.levelRange.upperBound) {
+            return 1.0
+        }
+        return round(percentage*100)/100
+    }
+    
+    static func getLevelByCurrentXp(currentXp:Int)->Level{
+        for level in Level.allCases {
+            if(level.levelRange.contains(currentXp)) {
+                return level
+            }
+        }
+        return Level.level5
     }
 }
 
@@ -28,14 +71,10 @@ enum Level: CaseIterable {
     case level4
     case level5
     
-    var maxXp: String {
+    var isMax:Bool {
         let index = Level.allCases.firstIndex(of: self)
-        let MaxLevel = index == Level.allCases.count
-        if(MaxLevel) {
-            return "♾️"
-        } else {
-            return "\(Level.allCases[index! + 1].levelRange.min()!)"
-        }
+        let MaxLevel = index == Level.allCases.count-1
+        return MaxLevel
     }
     
     var levelRange: ClosedRange<Int> {
@@ -49,15 +88,8 @@ enum Level: CaseIterable {
         case .level4:
             return 30000...299999
         case .level5:
-            return 300000...Int.max
+            return 300000...9999999
         }
-    }
-    
-    static func getProgress(currentXp:Int)->Float{
-        let level = Level.getLevelByCurrentXp(currentXp: currentXp)
-        let xpInCurrentLevel:Float = Float(currentXp - (level.levelRange.lowerBound))
-        let percentage:Float = xpInCurrentLevel/Float(level.levelRange.count)
-        return round(percentage*10)/10
     }
     
     var color: Color {
@@ -75,16 +107,7 @@ enum Level: CaseIterable {
         }
     }
     
-    var badgeText:String {
-        return Level.allCases.firstIndex(of: self)?.formatted() ?? ""
-    }
-    
-    static func getLevelByCurrentXp(currentXp:Int)->Level{
-        for level in Level.allCases {
-            if(level.levelRange.contains(currentXp)) {
-                return level
-            }
-        }
-        return level5   
+    var levelCount : Int{
+        Level.allCases.firstIndex(of: self)! + 1
     }
 }

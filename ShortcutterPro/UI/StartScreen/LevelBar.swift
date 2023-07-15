@@ -12,19 +12,29 @@ struct LevelBar : View {
     let state:LevelState
     let width :CGFloat = 270
     let height: CGFloat = 50
+
     
     var body: some View {
         ZStack() {
             GeometryReader { geometry in
-                
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray1)
                 Rectangle()
+                    .fill(Color.gray1)
+                    .frame(width: geometry.size.width/2)
+                let levelBarWidth = geometry.size.width * state.progress
+                if(geometry.size.width-levelBarWidth<10){
+                    
+                } else {
+                    Rectangle()
+                        .fill(state.level.color)
+                        .frame(width: levelBarWidth)
+                }
+                RoundedRectangle(cornerRadius: 10)
                     .fill(state.level.color)
-                    .frame(width: geometry.size.width * CGFloat(Level.getProgress(currentXp: state.currentXp)),height: geometry.size.height)
-                
+                    .frame(width: levelBarWidth, height: geometry.size.height)
                 StrokeText(
-                    text: "\(state.currentXp)/" + state.level.maxXp,
+                    text: "\(state.currentXp.formatLevelXpToString())/" + state.maxXp.formatLevelXpToString(),
                     strokeSize: 1,
                     color: Color.gray1
                 )
@@ -35,10 +45,20 @@ struct LevelBar : View {
                         y: geometry.size.height / 2)
             }
             .padding(.vertical,height*0.18)
-            .padding(.leading,height*0.80)
+            .padding(.leading,height*0.89)
     
             HStack{
-                Badge(color: state.level.color)
+                ZStack(alignment: .center){
+                    GeometryReader{ geometry in
+                        Image(image: Images.badgeBackground)
+                            .resizable()
+                            .tinted(with: state.level.color)
+                        Image(image: Images.badgeForeground)
+                            .resizable()
+                    }
+                    Text(state.badgeText)
+                        .font(Font.levelBadge)
+                }
                     .frame(width: height, height: height)
                 Spacer()
             }
@@ -47,30 +67,8 @@ struct LevelBar : View {
     }
 }
 
-private struct Badge :View {
-    let color:Color
-    var body: some View {
-        ZStack(alignment: .center){
-            GeometryReader{ geometry in
-                Image(image: Images.badgeBackground)
-                    .resizable()
-                    .tinted(with: color)
-                Image(image: Images.badgeForeground)
-                    .resizable()
-            }
-            Text("1")
-                .font(Font.levelBadge) 
-        }
-    }
-}
-
 struct LevelBarPreview: PreviewProvider {
     static var previews: some View {
-        LevelBar(state: LevelState(currentXp: 400   ))
-    }
-}
-struct BadgePreview: PreviewProvider {
-    static var previews: some View {
-        Badge(color: Level.level5.color)
+        LevelBar(state: LevelState(currentXp: 20000))
     }
 }

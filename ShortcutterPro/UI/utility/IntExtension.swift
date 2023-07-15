@@ -13,4 +13,12 @@ extension Int {
         let seconds = self % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+    
+    func formatLevelXpToString() -> String {
+        if(self>=10000) {
+            return self.formatted()
+        } else {
+            return "\(self)"
+        }
+    }
 }
