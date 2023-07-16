@@ -12,9 +12,9 @@ struct LevelBar : View {
     let state:LevelState
     let width :CGFloat = 270
     let height: CGFloat = 50
-    
-    @State private var percentage:CGFloat = 0
-    
+    @State private var currentXp: Int = 0
+    @State private var isAnimating: Bool = false
+
     
     var body: some View {
         ZStack() {
@@ -29,12 +29,23 @@ struct LevelBar : View {
                     }
                     .clipShape(RoundedCorners(tl: 0,tr: 10,bl: 0,br: 10))
                 StrokeText(
-                    text: "\(state.currentXp.formatLevelXpToString())/" + state.maxXp.formatLevelXpToString(),
+                    text: "\(currentXp.formatLevelXpToString())/" + state.maxXp.formatLevelXpToString(),
                     strokeSize: 1,
                     color: Color.gray1
                 )
                     .foregroundColor(Color.gray2)
                     .font(Font.levelBar)
+                    .onAppear{
+                        startCountUp()
+                    }
+                    .onReceive(Timer.publish(every: 0.03, on: .main, in: .common).autoconnect(), perform: { _ in
+                        if isAnimating {
+                            currentXp += 1
+                            if currentXp >=  100 {
+                                isAnimating = false
+                            }
+                        }
+                    })
             }
             .padding(.vertical,height*0.18)
             .padding(.leading,height*0.89)
@@ -57,6 +68,10 @@ struct LevelBar : View {
         }
         .frame(width: width, height: height)
 
+    }
+    
+    private func startCountUp() {
+        isAnimating = true
     }
 }
 
