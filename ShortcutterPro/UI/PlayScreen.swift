@@ -9,10 +9,9 @@ import Foundation
 import SwiftUI
 
 struct NextView: View {
-    @Binding var show: Bool
     var body: some View {
         VStack{
-            Button("Back") { self.show = false }
+            Button("Back") {}
             Text("This is the second view")
         }
     }

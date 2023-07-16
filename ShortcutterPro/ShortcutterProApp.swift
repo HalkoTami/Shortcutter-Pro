@@ -10,31 +10,44 @@ import AppKit
 
 @main
 struct ShortcutterProApp: App {
-    @State private var show = false
-    private let repository = Repository()
+    private let startViewModel = StartViewModel(repository: Repository())
+    @State private var state:MainState = MainState.initialState
     var body: some Scene {
+    
         WindowGroup {
             VStack{
-                if !show {
-//                    let viewModel = StartViewModel(repository: repository)
-//
-//                    AppStartScreen(viewModel: viewModel)
-                    RootView(show: $show)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .background(Color.blue)
-                                        .transition(AnyTransition.move(edge: .leading)).animation(.default, value: 20)
-                }
-                if show {
-                    NextView(show: $show)
+                switch state.screen {
+                case .Start:
+                    AppStartScreen(
+                        navigateToPlay:{ state.navigateTo(screen: .Play) },
+                        viewModel: startViewModel
+                    )
+                    .transition(AnyTransition.move(edge: .leading))
+                    .animation(.easeIn(duration: 10.0),value:state.screen == .Start)
+                case .Play :
+                     NextView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.green)
-                        .transition(AnyTransition.move(edge: .trailing)).animation(.default, value: 20)
                 }
-                
             }
+            .transition(AnyTransition.move(edge: .trailing))
+            .animation(.easeInOut,value: state.screen == .Play)
         }
         .windowToolbarStyle(UnifiedWindowToolbarStyle())
         
     
     }
+}
+
+struct MainState{
+    var screen:Screen
+    static let initialState:MainState = MainState(screen: .Start)
+    mutating func navigateTo(screen:Screen){
+        self.screen = screen
+    }
+}
+
+enum Screen {
+    case Start
+    case Play
 }

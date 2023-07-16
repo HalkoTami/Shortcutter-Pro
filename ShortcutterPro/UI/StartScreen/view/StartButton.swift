@@ -41,9 +41,10 @@ enum PlayMode {
 }
 
 struct StartButton : View {
+    let playMode:PlayMode
+    let onButtonClick:()->()
     let width:CGFloat = 190
     let height:CGFloat = 250
-    let playMode:PlayMode
     var body: some View {
         VStack {
             ZStack {
@@ -54,6 +55,9 @@ struct StartButton : View {
             }
             .frame(height: 68)
             .padding(2)
+            .onTapGesture {
+                onButtonClick()
+            }
             Spacer()
                 .frame(height: 10)
             DetailLayout(
@@ -124,6 +128,9 @@ private struct DetailLayout : View {
 
 struct StartButtonPreview: PreviewProvider {
     static var previews: some View {
-        StartButton(playMode: .Practice)
+        StartButton(
+            playMode: .Practice,
+            onButtonClick: { }
+        )
     }
 }
