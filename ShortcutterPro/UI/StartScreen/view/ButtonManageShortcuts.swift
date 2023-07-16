@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 
 struct ButtonShortcutsManager: View {
+    var onClick:()->() = { }
     @State var buttonState :ButtonState = .Default
+    @State var isClicked = false
     let buttonMinSize:CGFloat = 70
     let buttonMaxSize:CGFloat = 200
     var body: some View {
@@ -60,19 +62,15 @@ struct ButtonShortcutsManager: View {
         .onHover { hovering in
             self.buttonState = hovering ? .Hover : .Default
         }
-        .gesture(
-            DragGesture(minimumDistance: 0)
-            .onChanged { _ in
-                self.buttonState = .Click
-            }
-            .onEnded { _ in
-                self.buttonState = .Default
-            }
-        )
+        .opacity(self.isClicked ? 0.5 : 1)
+        .onTapGesture {
+            self.isClicked = true
+            onClick()
+        }
     }
     var buttonSize: CGFloat {
-            return self.buttonState == .Hover ? buttonMaxSize : buttonMinSize
-        }
+        return self.buttonState == .Hover ? buttonMaxSize : buttonMinSize
+    }
 }
 
 struct ButtonPreview: PreviewProvider {
@@ -80,6 +78,7 @@ struct ButtonPreview: PreviewProvider {
         VStack{
             ButtonShortcutsManager(buttonState:.Hover)
             ButtonShortcutsManager(buttonState:.Default)
+            ButtonShortcutsManager(buttonState: .Default, isClicked: true)
         }
         .frame(width: 400)
     }
@@ -88,5 +87,4 @@ struct ButtonPreview: PreviewProvider {
 enum ButtonState{
     case Default
     case Hover
-    case Click
 }
