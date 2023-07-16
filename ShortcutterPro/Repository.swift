@@ -8,8 +8,14 @@
 import Foundation
 class Repository {
     func getCurrentXP(completion: @escaping (Int?) -> Void) {
-        // Make API request to fetch current XP
-        // Once you have the response, parse the data and call the completion handler with the current XP value
-        // If there's an error, pass nil to the completion handler
+        delay(seconds: 3.0){
+            completion(300)
+        }
+    }
+}
+
+func delay(seconds: Double, completion: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+        completion()
     }
 }
