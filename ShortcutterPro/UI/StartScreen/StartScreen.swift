@@ -8,27 +8,44 @@
 import SwiftUI
 import AppKit
 import Cocoa
+struct AppStartScreen: View {
+    let navigateToPlay:()->()
+    @ObservedObject var viewModel:StartViewModel
+    var body: some View {
+        StartScreen(
+            state: viewModel.state,
+            onClickStartPractice: navigateToPlay
+        )
+    }
+}
 
-struct StartScreen: View {
+
+private struct StartScreen: View {
+    let state:StartScreenState
+    let onClickStartPractice:()->()
     var body: some View {
         VStack {
             HStack {
-                ButtonShortcutsManager(
-                    imageName: Images.icKeycap
-                )
+                ButtonShortcutsManager()
                 Spacer()
             }
             Spacer()
             ZStack{
-                LevelBar()
+                LevelBar(state: state.levelState)
             }
             Spacer()
                 .frame(height: 70)
             HStack {
-                StartButton(playMode: .Practice)
+                StartButton(
+                    playMode: .Practice,
+                    onButtonClick: onClickStartPractice
+                )
                 Spacer()
                     .frame(width: 100)
-                StartButton(playMode: .Test)
+                StartButton(
+                    playMode: .Test,
+                    onButtonClick: onClickStartPractice
+                )
             }
             Spacer()
         }
@@ -49,6 +66,9 @@ struct StartScreen: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        StartScreen()
+        StartScreen(
+            state :StartScreenState.initialState,
+            onClickStartPractice: {}
+        )
     }
 }

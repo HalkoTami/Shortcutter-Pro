@@ -41,9 +41,14 @@ enum PlayMode {
 }
 
 struct StartButton : View {
+    
+    @State private var isClicked:Bool = false
+    @State private var isHovering:Bool = false
+    
+    let playMode:PlayMode
+    let onButtonClick:()->()
     let width:CGFloat = 190
     let height:CGFloat = 250
-    let playMode:PlayMode
     var body: some View {
         VStack {
             ZStack {
@@ -52,8 +57,17 @@ struct StartButton : View {
                 Text(verbatim: .startButtonTitle(playMode: playMode))
                     .font(Font.buttonStartTitle)
             }
+            .colorMultiply(self.isHovering ? Color.basicBlue : Color.white)
             .frame(height: 68)
             .padding(2)
+            .opacity(self.isClicked ? 0.5 : 1)
+            .onTapGesture {
+                self.isClicked = true
+                onButtonClick()
+            }
+            .onHover{ hovering in
+                self.isHovering = hovering
+            }
             Spacer()
                 .frame(height: 10)
             DetailLayout(
@@ -124,6 +138,9 @@ private struct DetailLayout : View {
 
 struct StartButtonPreview: PreviewProvider {
     static var previews: some View {
-        StartButton(playMode: .Practice)
+        StartButton(
+            playMode: .Practice,
+            onButtonClick: { }
+        )
     }
 }

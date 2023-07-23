@@ -17,4 +17,9 @@ extension Color {
     static let gray2 = Color("gray_2")
     static let titlebarBackground = Color("titlebar_background")
     static let windowBackground = Color("window_background")
+    static let levelBarBlue = Color("levelbar_blue")
+    static let levelBarYellow = Color("levelbar_yellow")
+    static let levelBarGreen = Color("levelbar_green")
+    static let levelBarPurple = Color("levelbar_purple")
+    static let levelBarRed = Color("levelbar_red")
 }

@@ -9,67 +9,105 @@ import Foundation
 import SwiftUI
 
 struct LevelBar : View {
+    let state:LevelState
     let width :CGFloat = 270
     let height: CGFloat = 50
+    @State private var currentXp: Int = 0
+    @State private var isAnimating: Bool = false
+
     
     var body: some View {
         ZStack() {
-            GeometryReader { geometry in
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray1)
+            ZStack{
                 Rectangle()
-                    .fill(Color.basicBlue)
-                    .frame(width: geometry.size.width * 0.1,height: geometry.size.height)
-                
+                    .fill(Color.gray1)
+                    .overlay{
+                        Rectangle()
+                            .fill(state.level.color)
+                            .scaleEffect(x:state.progress,anchor: .leading)
+                            .animation(.easeInOut, value: state.progress)
+                    }
+                    .clipShape(RoundedCorners(tl: 0,tr: 10,bl: 0,br: 10))
                 StrokeText(
-                    text: "265/2000",
+                    text: "\(currentXp.formatLevelXpToString())/" + state.maxXp.formatLevelXpToString(),
                     strokeSize: 1,
                     color: Color.gray1
                 )
                     .foregroundColor(Color.gray2)
                     .font(Font.levelBar)
-                    .position(
-                        x: geometry.size.width / 2,
-                        y: geometry.size.height / 2)
+                    .onAppear{
+                        startCountUp()
+                    }
+                    .onReceive(Timer.publish(every: 0.03, on: .main, in: .common).autoconnect(), perform: { _ in
+                        if isAnimating {
+                            currentXp += 1
+                            if currentXp >=  100 {
+                                isAnimating = false
+                            }
+                        }
+                    })
             }
             .padding(.vertical,height*0.18)
-            .padding(.leading,height*0.80)
+            .padding(.leading,height*0.89)
     
             HStack{
-                Badge()
+                ZStack(alignment: .center){
+                    GeometryReader{ geometry in
+                        Image(image: Images.badgeBackground)
+                            .resizable()
+                            .tinted(with: state.level.color)
+                        Image(image: Images.badgeForeground)
+                            .resizable()
+                    }
+                    Text(state.badgeText)
+                        .font(Font.levelBadge)
+                }
                     .frame(width: height, height: height)
                 Spacer()
             }
         }
         .frame(width: width, height: height)
-    }
-}
 
-private struct Badge :View {
-    var body: some View {
-        ZStack(alignment: .center){
-            GeometryReader{ geometry in
-                Image(image: Images.badgeBackground)
-                    .resizable()
-                    .tinted(with: Color.basicBlue)
-                Image(image: Images.badgeForeground)
-                    .resizable()
-            }
-            Text("1")
-                .font(Font.levelBadge) 
-        }
-        .frame(width: .infinity, height: .infinity)
+    }
+    
+    private func startCountUp() {
+        isAnimating = true
     }
 }
 
 struct LevelBarPreview: PreviewProvider {
     static var previews: some View {
-        LevelBar()
+        LevelBar(state: LevelState(currentXp: 2004000))
     }
 }
-struct BadgePreview: PreviewProvider {
-    static var previews: some View {
-        Badge()
+
+struct RoundedCorners: Shape {
+    var tl: CGFloat = 0.0
+    var tr: CGFloat = 0.0
+    var bl: CGFloat = 0.0
+    var br: CGFloat = 0.0
+    
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            let w = rect.size.width
+            let h = rect.size.height
+
+            // Make sure we do not exceed the size of the rectangle
+            let tr = min(min(self.tr, h/2), w/2)
+            let tl = min(min(self.tl, h/2), w/2)
+            let bl = min(min(self.bl, h/2), w/2)
+            let br = min(min(self.br, h/2), w/2)
+            
+            path.move(to: CGPoint(x: w / 2.0, y: 0))
+            path.addLine(to: CGPoint(x: w - tr, y: 0))
+            path.addArc(center: CGPoint(x: w - tr, y: tr), radius: tr, startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 0), clockwise: false)
+            path.addLine(to: CGPoint(x: w, y: h - br))
+            path.addArc(center: CGPoint(x: w - br, y: h - br), radius: br, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 90), clockwise: false)
+            path.addLine(to: CGPoint(x: bl, y: h))
+            path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
+            path.addLine(to: CGPoint(x: 0, y: tl))
+            path.addArc(center: CGPoint(x: tl, y: tl), radius: tl, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
+            path.closeSubpath()
+        }
     }
 }
